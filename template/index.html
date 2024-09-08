@@ -2,18 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Recognition App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #6c757d;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        img {
+            max-width: 300px;
+            margin-top: 20px;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Face Recognition App</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*" required>
-        <input type="submit" value="Upload">
-    </form>
-    {% if result %}
-        <h2>Recognized: {{ result }}</h2>
-        <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 500px; max-height: 500px;">
-    {% endif %}
+    <div class="container">
+        <h1>Face Recognition</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <button type="submit">Upload and Recognize</button>
+        </form>
+
+        {% if label %}
+        <div class="result">
+            <h2>Recognition Result: {{ label }}</h2>
+            <img src="{{ url_for('static', filename='uploads/' + image_path.split('/')[-1]) }}" alt="Uploaded Image">
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Face Recognition App. All rights reserved.</p>
+    </div>
 </body>
 </html>
