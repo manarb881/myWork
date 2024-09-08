@@ -71,7 +71,7 @@ def upload_file():
         file.save(filepath)
         
         image = load_image(filepath)
-        recognized_name = recognize_face(image, model, {label: embed for label, embed in zip(labels, embeddings)})
+        recognized_name = recognize_face(image, model, {label: embed for label, embed in zip(labels, database )})
         
         return render_template('index.html', result=recognized_name, image_url=url_for('static', filename='uploads/' + filename))
     
