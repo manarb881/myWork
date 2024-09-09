@@ -17,7 +17,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 # Load pre-trained FaceNet model
 
-# kifh 3rft bli na7awah? lokan tdkhli l repo te3 Facenet w trohi /src/models tsibi bli had el facenet_keras.h5 makasho -m m4095m 
+# kifh 3rft bli na7awah? lokan tdkhli l repo te3 Facenet w trohi /src/models tsibi bli had el facenet_keras.h5 makasho, 7wsi 3la another one, Issam Menas tried Dlib and it was good -m m4095m 
 model = load_model('models/Facenet/facenet_keras.h5')
 database = np.load('models/lfw_embeddings.npy')
 labels = np.load('models/lfw_labels.npy')
