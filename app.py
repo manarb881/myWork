@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.utils import secure_filename
+# had l model makasho, n7awah m repo t3hom -m m4095m
 from tensorflow.keras.models import load_model
 from scipy.spatial import distance
 
@@ -16,6 +17,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 # Load pre-trained FaceNet model
 
+# kifh 3rft bli na7awah? lokan tdkhli l repo te3 Facenet w trohi /src/models tsibi bli had el facenet_keras.h5 makasho -m m4095m 
 model = load_model('models/Facenet/facenet_keras.h5')
 database = np.load('models/lfw_embeddings.npy')
 labels = np.load('models/lfw_labels.npy')
